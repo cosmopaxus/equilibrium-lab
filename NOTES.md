@@ -1,8 +1,11 @@
-# Restructure lab · R2 · evening check-in (Oct 18, 2026)
+# Restructure lab · P3a · lean Simple shell (Oct 19, 2026)
 
-Lab source: branch `restructure-lab`, commit `cb46a71` (from Release 3.4 `ba408a8`). Build stamp `mveju7tz`.
+Lab source: branch `restructure-lab`, commit `aaecf1b` (from Release 3.4 `ba408a8`). Build stamp `mvft8mw1`.
 
-- **Evening check-in** from Home: five 0–10 sliders (mood, energy, stress, focus, sleep), dosed today (adults who dose or aren't sure), ǝvōke offering + intention (adults), practiced + minutes, top goals, an optional note that goes to the Journal. One per day; open it again to change it.
-- Counts like a check-in: +2 gems once a day, a practice day, the Show up lesson, First light.
-- The old 0–100 check-in stays until the Simple shell.
-- Earlier: R1 starting point and "Need support now?" on every screen. Lab storage version 4 (`companion.lab`). Placeholder wording pending clinical and legal review.
+- **Opens in Simple mode**, built to the Simple mode mockups: three tabs (Today · Progress · Journal), flat Night and Day look, Cinzel headings, "Need support?" on every screen.
+- **Today:** day strip (practice + evening check-in = day counted), one Begin card (the Path's next lesson), "Something shorter? Other practices", rows for top 3 goals, dose log (adults with dosing on) and the evening check-in. The starting point or First steps show as one line until done or skipped.
+- **Other practices:** six Contemplative Level I practices; each counts as today's practice and counts toward the school if you join it later. Two-minute rest records nothing.
+- **Progress:** the Path (rank, N of 8, last / today / next), folding rows (Goals, Wins, Then vs now, Gems), the Advanced mode switch, Settings.
+- **Journal:** + Write, filters (All · Reflections · Check-ins · Reports), one stream by day.
+- **Advanced mode** shows the full app as it was; switch back in You → Simple mode.
+- Earlier: R2 evening check-in, R1 starting point and Support. Lab storage version 4 (`companion.lab`), test data only.
