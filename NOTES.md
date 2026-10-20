@@ -1,13 +1,13 @@
-# Restructure lab · R4b · dose log and calendar (Oct 19, 2026)
+# Restructure lab · R5 · experience reports and integration scales (Oct 19, 2026)
 
-Lab source: branch `restructure-lab` (from Release 3.4 `ba408a8`). Build stamp `mvg26bpn`.
+Lab source: branch `restructure-lab`, commit `68a5e5f` (from Release 3.4 `ba408a8`). Build stamp `mvg44bn6`.
 
-- **Dose log** (Today › Dose log in Simple; Home › rhythm card › Dose log in Advanced): today at the top with one tap (Took it, Skipped, Off day), a month calendar with your rhythm (dose days ringed in gold, taken filled, skipped marked –, off days dotted), and your rhythm one tap away.
-- **Logging a day:** the ǝvōke offering (in its own unit: Harmony in drops, Therapeutic Line in mL, Shots in servings) or Other (your name and unit), **your own amount** (never suggested or converted), time, intention, and a note. "Start low, go slow" is always shown.
-- **Rhythms:** ǝvōke's protocol library now has slots (2-Day Personal Minordose, Intuitive, ǝvōke Protocol), with placeholder rhythms until the ǝvōke team fills them in. The ǝvōke Protocol asks for an intention on each dose day.
-- The evening check-in starts from what you logged. Skipped days are kept. Amounts stay private (not in research for now). No dosing tools for under 18 or when the safety answers pause them.
-- Test data only (`companion.lab`). Earlier: R4a flat look, R3 weekly check-in, P3a Simple shell, R2 evening check-in, R1 starting point and Support.
+- **Plan a session** from the dose log: the day, plus prep days before and integration days after (you choose; 3 and 7 to start). The calendar marks them. Any logged dose day can also start a report.
+- **The report, in five steps:** Before (intention, mood, what you expect, setting, who's with you) · The dose (from your dose log) · The experience (12 effects, none to strong; how long; an optional timeline; your story, private) · The day after (your next evening check-in links in) · **Integration check-ins at 1 week, 1 month and 3 months** (the Psychedelic Integration Scales, 24 sliders, about 5 minutes).
+- Shows on **Today** when a step is due, in **Journal › Reports**, and on Advanced's Home as a card.
+- Text stays private; only numbers can go to research later. No gems for answers. The integration scales' wording is a placeholder until the exact text from Frymann et al. (2022) goes in.
+- Test data only (`companion.lab`). Earlier: R4b dose log, R4a flat look, R3 weekly, P3a Simple shell, R2 evening, R1 starting point.
 
 ## For the build chats
-- Data: the approved optional `DayNote` fields (`offeringId`, `unit`, `amountValue`, `takenAt`, `intention`). No schema bump. No new library.
-- Tests: 358 unit (13 new, `tests/doseLog.test.ts`); browser full run 257 pass / 15 skipped; new `e2e/doseLog.spec.ts`.
+- Data: `Journey.reports` (approved shape plus `sessionDay`, `prepDays`, `integrationDays`, `followUps.month3`, Cosmo Oct 19) and `pis` scale sets. No schema bump. No new library.
+- Tests: 371 unit (13 new, `tests/reports.test.ts`); browser full run 265 pass / 15 skipped; new `e2e/reports.spec.ts`.
