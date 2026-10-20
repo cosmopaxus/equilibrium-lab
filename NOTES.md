@@ -1,14 +1,14 @@
-# Restructure lab · R6 · then vs now, research copy, test export (Oct 19, 2026)
+# Restructure lab · P3b · goals by focus, Simple words, two-step evening check-in (Oct 20, 2026)
 
-Lab source: branch `restructure-lab`, commit `d27b7c3` (from Release 3.4 `ba408a8`). Build stamp `mvg98tk0`.
+Lab source: branch `restructure-lab`, commit `2d9eefc` (from Release 3.4 `ba408a8`). Build stamp `mvgv7ev7`.
 
-- **Then vs now** (Progress, opens on day 28): your starting point (gray) beside your last four weeks (green) for Well-being, Calm, At ease, Brighter mood and Sleep. Dips stay gray: dips are normal. Tap a measure for its line: Week · Month · 3 mo · 6 mo · Year (ranges appear as your data grows).
-- **Patterns** after four weeks, in plain numbers both ways (for example, evening mood on practice days vs other days). No praise words, so the feedback doesn't steer the answers.
-- **What we share** (Settings › Research): what your research copy holds (numbers, the week, your age range, a random id) and what never leaves (your words, exact dates, dose amounts, name). The citizen science switch is there too.
-- **Research tools** (hidden: tap the version line on About 5 times): download this device's research rows as CSV or JSON, in the same shape the research database takes. Nothing is sent anywhere.
-- **Test the timeline:** in Research tools, "Add 5 weeks of test history" moves your starting point back 35 days and adds sample weekly and evening check-ins, so Then vs now opens at once. Preview test data only.
-- Test data only (`companion.lab`). Earlier: R5 reports, R4b dose log, R4a flat look, R3 weekly, P3a Simple shell, R2 evening, R1 starting point.
+- **Goals by focus** (Progress › Goals): a *focus* is one thing you're practicing, like Sleep. Goals sit under their focus; goals without one sit under "No focus yet". Add a focus by name, or "Add a goal to Sleep".
+- **Notes on each goal:** open a goal to add a note as things happen: **Win**, **Noticed** or **Setback**. Each goal shows its own tally ("2 wins · 1 setback · last Oct 18"). A goal with no focus asks for one first. Reach, let go and edit work as before.
+- **Path lesson 2 (Name what matters)** now opens Goals in Simple, not the old Journey tab. It counts a focus and three notes, in either mode.
+- **Simple words on shared screens:** lessons, the lesson list, the Begin card, the goal sheet and the gem ledger say focus and notes (no Journey, areas, evidence, quests, Grimoire or Compass). Shelf practices read plainly (no school tags); How stays open, Why folds; the last three days practiced show first.
+- **Evening check-in in two short steps:** the five sliders, then the taps. The note is folded behind "Add a note for today". Same questions, same data.
+- Test data only (`companion.lab`). Earlier: R6 then vs now, R5 reports, R4b dose log, R4a flat look, R3 weekly, P3a Simple shell, R2 evening, R1 starting point.
 
 ## For the build chats
-- Data: approved addition `science.insightsFirstWeek` (set once; research rows carry `insights_seen` 0/1). Research ids map to a stable UUID at export (no stored change). No schema bump. No new library.
-- Tests: 403 unit (32 new: `tests/research.test.ts`, `tests/thenVsNow.test.ts`); browser full run 275 pass / 15 skipped; new `e2e/research.spec.ts`.
+- Data: approved addition `Evidence.goalId?` (optional; older notes untouched; kept by backup and merge; never in research). No schema bump. No new library.
+- Tests: 414 unit (11 new: `tests/p3b.test.ts`); browser full run 287 pass / 15 skipped; new `e2e/p3b.spec.ts`; evening specs take two steps (`eveningNext` in `e2e/startingPoint.ts`).
