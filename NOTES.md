@@ -1,14 +1,18 @@
-# Restructure lab · P3b · goals by focus, Simple words, two-step evening check-in (Oct 20, 2026)
+# Restructure lab · P3c · Goals › Steps, Reach and Keep doing (Oct 20, 2026)
 
-Lab source: branch `restructure-lab`, commit `2d9eefc` (from Release 3.4 `ba408a8`). Build stamp `mvgv7ev7`.
+Lab source: branch `restructure-lab`, commit `649e96d` (from Release 3.4 `ba408a8`). Build stamp `mvgylsd0`.
 
-- **Goals by focus** (Progress › Goals): a *focus* is one thing you're practicing, like Sleep. Goals sit under their focus; goals without one sit under "No focus yet". Add a focus by name, or "Add a goal to Sleep".
-- **Notes on each goal:** open a goal to add a note as things happen: **Win**, **Noticed** or **Setback**. Each goal shows its own tally ("2 wins · 1 setback · last Oct 18"). A goal with no focus asks for one first. Reach, let go and edit work as before.
-- **Path lesson 2 (Name what matters)** now opens Goals in Simple, not the old Journey tab. It counts a focus and three notes, in either mode.
-- **Simple words on shared screens:** lessons, the lesson list, the Begin card, the goal sheet and the gem ledger say focus and notes (no Journey, areas, evidence, quests, Grimoire or Compass). Shelf practices read plainly (no school tags); How stays open, Why folds; the last three days practiced show first.
-- **Evening check-in in two short steps:** the five sliders, then the taps. The note is folded behind "Add a note for today". Same questions, same data.
-- Test data only (`companion.lab`). Earlier: R6 then vs now, R5 reports, R4b dose log, R4a flat look, R3 weekly, P3a Simple shell, R2 evening, R1 starting point.
+- **Goal (big) › Steps (small).** "Focus" is gone from Simple. Progress › Goals lists each goal on one line with its own progress; the goals fold shut and open **one at a time**.
+- **Two kinds, chosen when a goal is made:** ◎ **Something to reach** (steps and a finish line; ends Reached or Let go) and ↻ **Something to keep doing** (a practice; no finish line; ends Pause or Let go, never "failed").
+- **Small drops:** tap a step's circle to finish it: the bar fills, a toast ("Step done · 3 of 5 · in your wins") and a line in Wins. Tap again to undo. When every step is done, "I reached it" appears.
+- **The ocean:** reaching a goal opens a full-screen **Goal reached** moment (steps, wins and days it took, your own line, +3 gems). Sparks burst; under reduced motion it simply appears.
+- **Keep doing counts days:** a day counts when the evening check-in says you worked on it, or you add a note to it that day. Shown as a week of dots and "5 of the last 7 days". Keep doing goals come first in the evening check-in and Today's top 3; paused ones step aside.
+- **One "+ Note" per goal** (Win · Noticed · Setback) with an optional chip for which step it's about.
+- **Difficulty:** an optional Easy · Medium · Hard on each goal and each step (Cosmo, Oct 20).
+- **Goal page:** steps (add, rename, set how hard, remove) or the week of days, the tally, notes with their step, and "Edit, reach / pause or let go". "Paused and done" sits quietly under the goals.
+- **Path lessons:** 2 Name what matters counts a goal and three notes on it (an area still counts); 3 Set your first goal counts either kind; 6 Reach a goal asks for a goal to reach. Finishing a step counts as a practice day.
+- Test data only (`companion.lab`). Earlier: P3b notes on goals, R6 then vs now, R5 reports, R4b dose log, R4a flat look, R3 weekly, P3a Simple shell, R2 evening, R1 starting point.
 
 ## For the build chats
-- Data: approved addition `Evidence.goalId?` (optional; older notes untouched; kept by backup and merge; never in research). No schema bump. No new library.
-- Tests: 414 unit (11 new: `tests/p3b.test.ts`); browser full run 287 pass / 15 skipped; new `e2e/p3b.spec.ts`; evening specs take two steps (`eveningNext` in `e2e/startingPoint.ts`).
+- Data (approved, option a): `Goal.kind?` (`reach` | `keep`; absent = reach), `Goal.pausedAt?`, `Goal.difficulty?`, new list `Journey.goalSteps?` (id, goalId, title, doneAt?, difficulty?), `Evidence.stepId?`, and `Evidence.areaId` optional when the note has a `goalId`. All optional, no schema bump, kept by backup and merge (steps merge by id), never in research. No new library.
+- Tests: 431 unit (20 new: `tests/p3c.test.ts`; P3b tests moved off Focus); browser full run 293 pass / 15 skipped, 0 fail; new `e2e/p3c.spec.ts`.
