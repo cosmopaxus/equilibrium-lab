@@ -1,3 +1,24 @@
+# Restructure lab · Intake preview (Oct 20, 2026)
+
+Lab source: branch `restructure-lab`, commit `6b14177` (on top of P3c `649e96d`). Lab only (`LAB = true`); the live app is untouched.
+
+Cosmo: "i want to be able to have a reset so i can continue to show the intake beginning stages … or like a preview mode?"
+
+- **Preview the intake:** Settings › *Show the app · preview only* › **Preview the intake** (in Simple, Settings sits at the bottom of Progress; in Advanced it's the You tab).
+- **Or open the link:** `https://cosmopaxus.github.io/equilibrium-lab/?preview=intake` opens straight into the preview. The address cleans itself, so a reload goes back to the real journey.
+- **What it shows:** the welcome → name and age → Space → directions → Safety & Path → the **starting point** survey → a brand-new member's Today. All of it works as a real member would see it.
+- **Gold band on every screen:** "Intake preview · nothing is saved", with **Start again** (back to an empty welcome) and **Exit** (your own journey comes back exactly as it was).
+- **Nothing is written to the device while it runs:** no saves, no drafts, no restore snapshot, no sync. "Erase" inside the preview only empties the preview. Reloading the page also ends it.
+- **Full wipe** is still Settings › Your data › Erase this device's journey (permanent).
+
+## For the build chats
+- `src/state/store.tsx`: `preview`, `previewRun`, `startPreview`, `restartPreview`, `endPreview`. The sandbox swaps the journey and drafts for an empty journey in memory; `flush`, `schedule`, `setDraft`, `flushDrafts`, `replaceJourney`, `undoRestore` and `eraseDevice` stand aside while `previewRef` is on; `endPreview` reads the real journey back with `load`. `?preview=intake` is read once at start (`PREVIEW_ON_OPEN`, web + LAB only). `switchAccount` ends the preview first; `sync/account.tsx` never syncs during it.
+- `App.tsx`: `<LabBand /> <PreviewBand /> <Shell />`; `Shell` keys `AppShell` on `previewRun`, so every start, restart and exit opens fresh screens. `src/ui/PreviewBand.tsx` (ink on gold, 44 px buttons). `You.tsx` gains the lab-only row. Rails say "Preview · nothing saved".
+- No data change, no new library. Not in a live build (everything is behind `LAB`).
+- Tests: 435 unit (`tests/preview.test.ts` guard rules; `tests/lab.test.ts` band order). Browser: new `e2e/preview.spec.ts` (4 × phone/desktop): the device's stored data is identical before, during and after a preview; Start again; reload; the link; erase inside the preview.
+
+---
+
 # Restructure lab · P3c · Goals › Steps, Reach and Keep doing (Oct 20, 2026)
 
 Lab source: branch `restructure-lab`, commit `649e96d` (from Release 3.4 `ba408a8`). Build stamp `mvgylsd0`.
