@@ -5,6 +5,6 @@ Preview of the Equilibrium restructure (Simple and Advanced modes, research core
 - Live app: unaffected (separate repository and storage).
 - Saves only under its own browser storage name (`companion.lab`), never the live app's.
 - Keeps its own offline cache (`companionlab-…`) and clears only its own caches.
-- Not connected to the live database.
+- Not connected to the live database. Sign-in, sync and research sharing use a separate test database (test data only).
 
 Link: https://cosmopaxus.github.io/equilibrium-lab/
