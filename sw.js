@@ -12,8 +12,8 @@
 //   'companion-…'. Other apps on the same origin (the lab's 'companionlab-…') are never touched.
 // Lab (Oct 18, 2026): the restructure preview's caches are 'companionlab-…'. It clears only its own
 // older caches and never the live app's 'companion2-…' / 'companion-…' on the shared origin.
-const CACHE = 'companionlab-mw5xhnwp';
-const PRECACHE = ["./","./manifest.webmanifest","./icons/icon-192.png","./icons/icon-512.png","./icons/apple-touch-icon.png","./fonts/cinzel-700.woff2","./fonts/nunito-400.woff2","./fonts/nunito-600.woff2","./fonts/nunito-700.woff2","./fonts/jost-400.woff2","./favicon.ico","./icons/favicon.svg","./app/static/js/web/index-05e372f665a9a6bb5405f6d000a55e81.js","./art/familiars/familiar-air-sylph-head.jpg","./art/familiars/familiar-earth-gnome-head.jpg","./art/familiars/familiar-fire-salamander-head.jpg","./art/familiars/familiar-water-undine-head.jpg","./art/seals/seal-air.jpg","./art/seals/seal-earth.jpg","./art/seals/seal-fire.jpg","./art/seals/seal-water.jpg"];
+const CACHE = 'companionlab-mw8mzijm';
+const PRECACHE = ["./","./manifest.webmanifest","./icons/icon-192.png","./icons/icon-512.png","./icons/apple-touch-icon.png","./fonts/cinzel-700.woff2","./fonts/nunito-400.woff2","./fonts/nunito-600.woff2","./fonts/nunito-700.woff2","./fonts/jost-400.woff2","./favicon.ico","./icons/favicon.svg","./app/static/js/web/index-79a8cd2ed82b867aae8137439f5d39ec.js","./art/familiars/familiar-air-sylph-head.jpg","./art/familiars/familiar-earth-gnome-head.jpg","./art/familiars/familiar-fire-salamander-head.jpg","./art/familiars/familiar-water-undine-head.jpg","./art/seals/seal-air.jpg","./art/seals/seal-earth.jpg","./art/seals/seal-fire.jpg","./art/seals/seal-water.jpg"];
 const OURS = (k) => k.startsWith('companionlab-');
 const ownCache = () => caches.open(CACHE);
 
@@ -26,6 +26,14 @@ self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((keys) => Promise.all(keys.filter((k) => OURS(k) && k !== CACHE).map((k) => caches.delete(k)))).then(() => self.clients.claim()),
   );
+});
+
+// Build 1 leftovers (Nov 8): the page asks which build this worker is, so the "new version" banner shows only when
+// the worker that took over is a different build from the page (public/index.html).
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'equilibrium-build' && event.ports && event.ports[0]) {
+    event.ports[0].postMessage({ build: CACHE.slice(CACHE.lastIndexOf('-') + 1) });
+  }
 });
 
 self.addEventListener('fetch', (event) => {
