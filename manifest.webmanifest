@@ -1,8 +1,8 @@
 {
-  "name": "Equilibrium",
-  "short_name": "Equilibrium",
+  "name": "Equilibrium Lab",
+  "short_name": "Equilibrium Lab",
   "description": "A practice for becoming. Notice where you are, choose what matters, practice a direction, and see what changes.",
-  "id": "./",
+  "id": "/equilibrium-lab/",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
